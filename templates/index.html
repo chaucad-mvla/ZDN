@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <title>ZDN</title>
+        <link rel="icon" href="https://v1.padlet.pics/1/image.webp?t=c_thumb%2Cdpr_1%2Cg_auto%2Ch_48%2Cw_48&url=https%3A%2F%2Fpadlet-uploads.storage.googleapis.com%2F1876169774%2F7c2c104fcd35a2acc14684c731830edc%2Ffavicon.png">
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="/">Home</a>
+            <a href="https://www.nitromath.com/team/ZDN" target="_blank">Team</a>
+        </div>
+        <center>
+            <div style="font-size: 8vh;"> <span style="color: #2e0082;">ZDN</span> NitroMath Team </div>
+            <div class="content">
+                {% for i in range(data|length) %}
+                    {% if i == 0 %}
+                        <button class="gold racer" onclick="location.href='https://www.nitromath.com/racer/{{data[i]['username']}}'">
+                    {% elif i == 1 %}
+                        <button class="silver racer" onclick="location.href='https://www.nitromath.com/racer/{{data[i]['username']}}'">
+                    {% elif i == 2 %}
+                        <button class="bronze racer" onclick="location.href='https://www.nitromath.com/racer/{{data[i]['username']}}'">
+                    {% else %}
+                        <button class="regular racer" onclick="location.href='https://www.nitromath.com/racer/{{data[i]['username']}}'">
+                    {% endif %}
+                            <div class="stat-title">{{ data[i]['username'] }}</div>
+                            <span class="stat">
+                                <b>Team Races:</b>
+                                {{ data[i]['races'] }}
+                                <b>Total Races:</b>
+                                {{ data[i]['total'] }}
+                                <b>Daily Races:</b>
+                                {{ data[i]['daily'] }}
+                            </span>
+                    </button>
+                {% endfor %}
+            </div>
+        </center>
+    </body>
+</html>
